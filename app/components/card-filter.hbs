@@ -1,0 +1,17 @@
+<input type='text' {{on 'input' this.update}}>
+
+<style>
+.card-filter-list { display: flex; list-style-type: none; gap: 20px; flex-wrap: wrap; }
+.card-filter-card { height: 120px; width: 86px; position: relative; }
+.card-filter-card:hover { z-index: 1; }
+.card-filter-card img { max-height: 120px; position: absolute; top: 0; left: 0; }
+.card-filter-card:hover img { max-height: 240px; top: -50%; left: -50%; }
+</style>
+
+<ul class='card-filter-list'>
+  {{#each this.results as |result|}}
+    <li class='card-filter-card'>
+      <img src="{{result.images.large}}" {{on 'click' (fn this.select result.id)}} />
+    </li>
+  {{/each}}
+</ul>

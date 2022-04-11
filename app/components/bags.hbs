@@ -1,0 +1,7 @@
+<ul class='bags'>
+  {{#each this.bags as |bag|}}
+    <li>
+      <LinkTo @route="bags.show" @model={{bag}}>{{bag.name}} ({{bag.total}} cards)</LinkTo>
+    </li>
+  {{/each}}
+</ul>

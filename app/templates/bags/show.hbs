@@ -1,0 +1,23 @@
+{{log @model}}
+oi, vamos la listar as {{@model.bagCards.length}} cartas.
+
+<style>
+.bags-show-card-list { display: flex; list-style-type: none; gap: 20px; flex-wrap: wrap; }
+.bags-show-card { height: 120px; width: 86px; position: relative; }
+.bags-show-card:hover { z-index: 1; }
+.bags-show-card img { max-height: 120px; position: absolute; top: 0; left: 0; }
+.bags-show-card:hover img { max-height: 240px; top: -50%; left: -50%; }
+</style>
+
+<ul class='bags-show-card-list'>
+  {{#each this.cardsWithInfo as |card|}}
+    <li class='bags-show-card'>
+      {{log card}}
+      <img src="{{card.info.images.large}}" />
+    </li>
+  {{/each}}
+</ul>
+
+<hr />
+
+<CardFilter @select={{this.addCard}} />
