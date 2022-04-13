@@ -1,0 +1,14 @@
+<form {{on 'submit' this.createBag}}>
+  <p>Bag name: <input type="text" value="" name='name' /></p>
+
+  <p>
+    Type:
+    <select name='category'>
+      <option value="binder">Binder</option>
+      <option value="deck">Deck</option>
+      <option value="etb">ETB</option>
+    </select>
+  </p>
+
+  <input type='submit' value='Create' />
+</form>

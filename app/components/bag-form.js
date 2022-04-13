@@ -1,8 +1,8 @@
-import Controller from '@ember/controller';
+import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
 
-export default class IndexController extends Controller {
+export default class BagFormComponent extends Component {
   @service store;
 
   @action
