@@ -14,8 +14,6 @@ export default class CardFilterComponent extends Component {
     if (text.length >= 3) {
       const cards = await this.dataset.cards();
 
-      console.log(cards);
-
       this.results = Object.values(cards).filter((card) =>
         card.name.toLowerCase().includes(text)
       );

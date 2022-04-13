@@ -8,6 +8,8 @@ export default class BagsShowRoute extends Route {
   model(params) {
     return this.dataset
       .cards()
-      .then(() => this.store.findRecord('bag', params.id, { include: 'bag-cards' }));
+      .then(() =>
+        this.store.findRecord('bag', params.id, { include: 'bag-cards' })
+      );
   }
 }

@@ -17,19 +17,18 @@ export default function (server) {
         name: 'Brilliant stars ETB',
       },
     ],
-    'bag-cards': [
-      { bagId: 2, dbid: 'swsh6-69', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-69', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-69', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-69', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-70', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-70', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-70', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-70', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-159', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-159', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-159', modifiers: [] },
-      { bagId: 2, dbid: 'swsh6-159', modifiers: [] },
-    ],
   });
+
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-69', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-69', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-69', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-69', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-70', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-70', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-70', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-70', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-159', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-159', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-159', modifiers: [] });
+  server.create('bag-card', { bagId: '2', dbid: 'swsh6-159', modifiers: [] });
 }

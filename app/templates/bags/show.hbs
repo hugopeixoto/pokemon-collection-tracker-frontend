@@ -1,5 +1,6 @@
-{{log @model}}
-oi, vamos la listar as {{@model.bagCards.length}} cartas.
+<LinkTo @route="index">Home</LinkTo>
+
+<h1>{{@model.name}} ({{@model.bagCards.length}} cards)</h1>
 
 <style>
 .bags-show-card-list { display: flex; list-style-type: none; gap: 20px; flex-wrap: wrap; }
@@ -9,15 +10,8 @@ oi, vamos la listar as {{@model.bagCards.length}} cartas.
 .bags-show-card:hover img { max-height: 240px; top: -50%; left: -50%; }
 </style>
 
-<ul class='bags-show-card-list'>
-  {{#each this.cardsWithInfo as |card|}}
-    <li class='bags-show-card'>
-      {{log card}}
-      <img src="{{card.info.images.large}}" />
-    </li>
-  {{/each}}
-</ul>
+<CardFilter @select={{this.addCard}} />
 
 <hr />
 
-<CardFilter @select={{this.addCard}} />
+<BagDeck @cards={{this.cardsWithInfo}} @onRemove={{this.remove}} />

@@ -1,0 +1,8 @@
+<ul class='bags-show-card-list'>
+  {{#each @cards as |card|}}
+    <li class='bags-show-card'>
+      <img src="{{card.info.images.large}}" {{on 'click' (fn @onRemove card)}} />
+    </li>
+  {{/each}}
+</ul>
+
