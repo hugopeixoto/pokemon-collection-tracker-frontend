@@ -1,0 +1,49 @@
+<style>
+.bag-binder-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.bag-binder-page {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.bag-binder-page.selected { background-color: #eee; }
+
+.bag-binder-card { height: 120px; width: 88px; position: relative; }
+.bag-binder-card img { max-height: 100%; position: absolute; top: 0; left: 0; }
+.bag-binder-card { opacity: 0.6; filter: grayscale(1); }
+.bag-binder-card.collected { opacity: 1; filter: none; }
+</style>
+
+{{on-key '9' this.clicky}}
+{{on-key '8' this.clicky}}
+{{on-key '7' this.clicky}}
+{{on-key '6' this.clicky}}
+{{on-key '5' this.clicky}}
+{{on-key '4' this.clicky}}
+{{on-key '3' this.clicky}}
+{{on-key '2' this.clicky}}
+{{on-key '1' this.clicky}}
+{{on-key 'Enter' this.advancePage}}
+{{on-key 'ArrowRight' this.advancePage}}
+{{on-key 'ArrowLeft' this.retreatPage}}
+
+<ol class='bag-binder-card-list'>
+  {{#each this.sets as |set|}}
+    {{#each set.pages as |page|}}
+    <li class='bag-binder-page {{if (eq page.id this.currentPageId) "selected"}}' id={{page.id}} {{on 'click' (fn this.selectPage page)}}>
+        {{#each page.cards as |card|}}
+          <div class='bag-binder-card {{if card.model "collected"}}'>
+            <img src="{{card.info.images.small}}" />
+          </div>
+        {{/each}}
+      </li>
+    {{/each}}
+  {{/each}}
+</ol>

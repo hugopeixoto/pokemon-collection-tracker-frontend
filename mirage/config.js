@@ -17,6 +17,7 @@ export default function (config) {
       this.passthrough('http://localhost:4567/**');
 
       this.passthrough('/cards.json');
+      this.passthrough('/sets.json');
     },
   });
 }

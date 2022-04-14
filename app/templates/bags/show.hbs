@@ -14,4 +14,8 @@
 
 <hr />
 
-<BagDeck @cards={{this.cardsWithInfo}} @onRemove={{this.remove}} />
+{{#if (eq this.model.category "deck")}}
+  <BagDeck @cards={{this.cardsWithInfo}} @onRemove={{this.remove}} />
+{{else}}
+  <BagBinder @cards={{this.model.bagCards}} @onRemove={{this.remove}} @onAdd={{this.addCard}} />
+{{/if}}

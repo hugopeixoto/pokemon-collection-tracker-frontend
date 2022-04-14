@@ -3,22 +3,22 @@ import Service, { service } from '@ember/service';
 export default class DatasetService extends Service {
   @service store;
 
-  async cards() {
-    if (!this.cachedCards) {
-      const response = await fetch('/cards.json');
-      const json = await response.json();
-      this.cachedCards = json;
-    }
+  cachedCards = {};
 
+  async load() {
+    this.cachedCards = await (await fetch('/cards.json')).json();
+    this.cachedSets = await (await fetch('/sets.json')).json();
+  }
+
+  cards() {
     return this.cachedCards;
   }
 
+  setCards(setId) {
+    return Object.values(this.cachedCards).filter((c) => c.set == setId);
+  }
+
   card(id) {
-    if (!this.cachedCards) {
-      this.cards();
-      return null;
-    } else {
-      return this.cachedCards[id];
-    }
+    return this.cachedCards[id];
   }
 }

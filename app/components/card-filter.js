@@ -18,6 +18,10 @@ export default class CardFilterComponent extends Component {
         card.name.toLowerCase().includes(text)
       );
     }
+
+    if (text.length == 0) {
+      this.results = [];
+    }
   }
 
   @action
