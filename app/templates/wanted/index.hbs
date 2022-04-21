@@ -1,0 +1,13 @@
+<p>oi</p>
+
+<ol>
+  {{#each this.sets as |set|}}
+    <li><LinkTo @route="wanted.show" @model={{set.id}}>{{set.name}}</LinkTo></li>
+  {{/each}}
+</ol>
+
+<p>oi</p>
+
+{{#each this.model as |bag|}}
+{{bag.dbid}},
+{{/each}}

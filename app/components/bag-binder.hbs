@@ -34,6 +34,10 @@
 {{on-key 'ArrowRight' this.advancePage}}
 {{on-key 'ArrowLeft' this.retreatPage}}
 
+{{#each this.setIds as |set|}}
+  {{set.name}} ({{set.releaseDate}}),
+{{/each}}
+
 <ol class='bag-binder-card-list'>
   {{#each this.sets as |set|}}
     {{#each set.pages as |page|}}

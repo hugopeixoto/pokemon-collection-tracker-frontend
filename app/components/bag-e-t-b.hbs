@@ -1,0 +1,39 @@
+<style>
+.bag-etb-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0px;
+}
+
+.bag-etb-card {
+  padding: 10px;
+}
+
+.bag-etb-card-selector { float: left; position: sticky; top: 0; }
+
+.bag-etb-card.selected { background-color: #eee; }
+
+.bag-etb-card { width: 88px; }
+.bag-etb-card img { max-width: 100%; }
+.bag-etb-card-count { text-align: center; }
+</style>
+
+{{on-key 'Enter' this.advanceCard}}
+{{on-key 'ArrowRight' this.advanceCard}}
+{{on-key 'ArrowLeft' this.retreatCard}}
+{{on-key 'ArrowUp' this.addCard}}
+{{on-key 'ArrowDown' this.removeCard}}
+
+<div class='bag-etb-card-selector'>
+  <img src='{{ this.selectedCard.images.small }}' {{on 'click' this.clickCard}} />
+</div>
+
+<ol class='bag-etb-card-list'>
+  {{#each this.cards as |card|}}
+    <li class='bag-etb-card {{if (eq card.info.id this.currentCardId) "selected"}}' id={{card.id}} {{on 'click' (fn this.selectCard card)}}>
+      <img src="{{card.info.images.small}}" />
+      <div class='bag-etb-card-count'>{{ card.count }}</div>
+    </li>
+  {{/each}}
+</ol>

@@ -5,6 +5,6 @@ export default class BagsComponent extends Component {
   @service store;
 
   get bags() {
-    return this.store.findAll('bag', { include: 'bag-cards' });
+    return this.args.bags.sortBy('category', 'name');
   }
 }

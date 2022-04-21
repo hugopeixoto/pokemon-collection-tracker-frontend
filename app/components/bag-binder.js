@@ -21,19 +21,28 @@ export default class BagBinderComponent extends Component {
   pages = [];
 
   get setIds() {
-    return this.args.cards.map((c) => this.dataset.card(c.dbid).set).uniq();
+    return this.args.cards
+      .map((c) => this.dataset.card(c.dbid).set)
+      .uniq()
+      .map((s) => this.dataset.setInfo(s))
+      .sortBy('releaseDate');
   }
 
   get sets() {
     return this.setIds.map((set) => ({
-      name: set,
+      name: set.id,
       pages: chunks(
-        this.dataset.setCards(set).map((card) => ({
+        this.dataset.setCards(set.id).map((card) => ({
           model: this.args.cards.find((c) => c.dbid == card.id),
           info: card,
         })),
         9
-      ).map((cards, index) => ({ id: `${set}-p${index}`, set, index, cards })),
+      ).map((cards, index) => ({
+        id: `${set.id}-p${index}`,
+        set: set.id,
+        index,
+        cards,
+      })),
     }));
   }
 

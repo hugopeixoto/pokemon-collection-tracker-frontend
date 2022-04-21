@@ -15,10 +15,21 @@ export default class DatasetService extends Service {
   }
 
   setCards(setId) {
-    return Object.values(this.cachedCards).filter((c) => c.set == setId);
+    return Object.values(this.cachedCards)
+      .filter((c) => c.set == setId)
+      .map((c) => ({ ...c, number: parseInt(c.number) }))
+      .sortBy('number');
   }
 
   card(id) {
     return this.cachedCards[id];
+  }
+
+  sets() {
+    return this.cachedSets;
+  }
+
+  setInfo(id) {
+    return this.cachedSets[id];
   }
 }
