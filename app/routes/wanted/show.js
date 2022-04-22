@@ -6,8 +6,6 @@ export default class BagsShowRoute extends Route {
   @service store;
 
   async model(params) {
-    await this.dataset.load();
-
     const cards = await this.store.findAll('bag-card');
     const setCards = cards.filter(
       (c) => this.dataset.card(c.dbid).set == params.id

@@ -7,14 +7,18 @@ export default class BagsShowController extends Controller {
   @service store;
 
   @action
-  addCard(cardId) {
-    this.store
-      .createRecord('bag-card', {
-        bag: this.model,
-        dbid: cardId,
-        modifiers: [],
-      })
-      .save();
+  async addCard(cardId) {
+    const model = this.store.createRecord('bag-card', {
+      bag: this.model,
+      dbid: cardId,
+      modifiers: [],
+    });
+
+    try {
+      await model.save();
+    } catch {
+      model.deleteRecord();
+    }
   }
 
   @action

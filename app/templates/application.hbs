@@ -2,8 +2,4 @@
 
 <LinkTo @route="index">Home</LinkTo> | <LinkTo @route="wanted">Wanted cards</LinkTo> | <LinkTo @route="login">Login</LinkTo>
 
-{{#if this.loading}}
-  <p>Loading...</p>
-{{else}}
-  {{outlet}}
-{{/if}}
+{{outlet}}
